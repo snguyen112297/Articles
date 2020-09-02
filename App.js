@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, StatusBar, Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { withNavigation } from 'react-navigation';
@@ -59,13 +59,13 @@ class ArticlesList extends React.Component {
     super(props);
     this.state = {
       data: [
-        {title: 'ARTICLE I: Legislative Branch', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. A portion of Article I, Section 2, was changed by the 14th Amendment; a portion of Section 9 was changed by the 16th Amendment; a portion of Section 3 was changed by the 17th Amendment; and a portion of Section 4 was changed by the 20th Amendment'},
-        {title: 'ARTICLE II: Executive Branch',  summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. Portions of Article II, Section 1, were changed by the 12th Amendment and the 25th Amendment'},
-        {title: 'ARTICLE III: Judicial Branch', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. A portion of Article III, Section 2, was changed by the 11th Amendment'},
-        {title: 'ARTICLE IV: States, Citizenship, New States', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. A portion of Article IV, Section 2, was changed by the 13th Amendment'},
-        {title: 'ARTICLE V: Amendment Process', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788'},
-        {title: 'ARTICLE VI: Debts, Supremacy, Oaths, Religious Tests', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788'},
-        {title: 'ARTICLE VII: Ratification', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788'}
+        {key: '1', title: 'ARTICLE I: Legislative Branch', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. A portion of Article I, Section 2, was changed by the 14th Amendment; a portion of Section 9 was changed by the 16th Amendment; a portion of Section 3 was changed by the 17th Amendment; and a portion of Section 4 was changed by the 20th Amendment'},
+        {key: '2', title: 'ARTICLE II: Executive Branch',  summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. Portions of Article II, Section 1, were changed by the 12th Amendment and the 25th Amendment'},
+        {key: '3', title: 'ARTICLE III: Judicial Branch', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. A portion of Article III, Section 2, was changed by the 11th Amendment'},
+        {key: '4',title: 'ARTICLE IV: States, Citizenship, New States', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788. A portion of Article IV, Section 2, was changed by the 13th Amendment'},
+        {key: '5',title: 'ARTICLE V: Amendment Process', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788'},
+        {key: '6',title: 'ARTICLE VI: Debts, Supremacy, Oaths, Religious Tests', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788'},
+        {key: '7',title: 'ARTICLE VII: Ratification', summary: 'Signed in convention September 17, 1787. Ratified June 21, 1788'}
       ]
     }
   }
@@ -76,9 +76,8 @@ class ArticlesList extends React.Component {
         <StatusBar hidden={true} />
         <FlatList
           data={data}
-          keyExtractor={(item, index)=>index.toString()}
-          renderItem={({item, index})=> <TouchableOpacity style={styles.list} onPress={
-            ()=> this.props.navigation.navigate('Login')}>
+          renderItem={({item, key})=> <TouchableOpacity style={styles.list} onPress={
+            ()=> this.props.navigation.navigate('Article ' + item.key)}>
             
             <Text style={styles.flatListText}>{item.title}</Text>
             <Text style={styles.flatListText}>{item.summary}</Text>
@@ -86,14 +85,40 @@ class ArticlesList extends React.Component {
         
         />
       </View>
-
-
-      /*<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Articles List</Text>
-      </View>*/
     );
   }
 }
+
+const Article = (props) => {
+  return (
+    <View style={styles.container}>
+        <Image style={styles.image}
+          source={require('./assets/flag.png')}>
+        </Image>
+        <View style={styles.articleTextView}>
+          <Text style={styles.articleText} > Article {props.num}</Text>
+          <Text style={styles.articleText} > Content:</Text>
+          <Text style={styles.articleText} > *Placeholder Text*</Text>
+        </View>
+    </View>
+  )
+}
+
+class Article1 extends React.Component {
+  render(){
+    return(
+        <Article num = '1'/>
+    );
+  }
+}
+
+class Article2 extends React.Component { render() { return(<Article num = '2'/>); } }
+class Article3 extends React.Component { render() { return(<Article num = '3'/>); } }
+class Article4 extends React.Component { render() { return(<Article num = '4'/>); } }
+class Article5 extends React.Component { render() { return(<Article num = '5'/>); } }
+class Article6 extends React.Component { render() { return(<Article num = '6'/>); } }
+class Article7 extends React.Component { render() { return(<Article num = '7'/>); } }
+
 
 function App() {
   return (
@@ -101,6 +126,13 @@ function App() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Login" component={HomeScreen} />
         <Stack.Screen name="Articles List" component={ArticlesList}/>
+        <Stack.Screen name="Article 1" component={Article1}/>
+        <Stack.Screen name="Article 2" component={Article2}/>
+        <Stack.Screen name="Article 3" component={Article3}/>
+        <Stack.Screen name="Article 4" component={Article4}/>
+        <Stack.Screen name="Article 5" component={Article5}/>
+        <Stack.Screen name="Article 6" component={Article6}/>
+        <Stack.Screen name="Article 7" component={Article7}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -166,5 +198,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image: {
+    width: "100%",
+    height: undefined,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    resizeMode: 'contain',
+    backgroundColor: 'black'
+  },
+  articleTextView: {
+    width: "100%",
+    height: undefined,
+    backgroundColor: "black",
+    flex: 2,
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  },
+  articleText: {
+    fontSize: 20,
+    color: 'white'
   }
 });
