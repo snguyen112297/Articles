@@ -26,5 +26,5 @@ Touch any of the Articles
 
 
 Article 1 Page
-[
-![Screenshot-1599079360.png](https://i.postimg.cc/dtCNW1t6/Screenshot-1599079360.png)](https://postimg.cc/gnYKjGhL)
+
+[![Screenshot-1599079360.png](https://i.postimg.cc/dtCNW1t6/Screenshot-1599079360.png)](https://postimg.cc/gnYKjGhL)
