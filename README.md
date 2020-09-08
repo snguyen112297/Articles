@@ -1,6 +1,6 @@
 # Articles
 * Description:
-An news reading application. Articles of the Constitution being used as placeholders. 
+An news reading application. Movie details used as placeholders
 
 * Function yet to be implemented: 
 Password Check
@@ -19,6 +19,11 @@ install react-native-reanimated react-native-gesture-handler react-native-screen
 
 * Screenshots
 
+Splash Page
+
+[![Screenshot-1599590678.png](https://i.postimg.cc/pdnMGBDs/Screenshot-1599590678.png)](https://postimg.cc/GBrf9GgD)
+
+
 Login Page
 
 [![Screenshot-1599071543.png](https://i.postimg.cc/t4ZDn63z/Screenshot-1599071543.png)](https://postimg.cc/K1btdRsK)
@@ -30,8 +35,7 @@ Touch the Login Button
 
 Articles List
 
-[![Screenshot-1599071547.png](https://i.postimg.cc/wvgDTRxF/Screenshot-1599071547.png)](https://postimg.cc/CZrRc1qf)
-
+[![Screenshot-1599590686.png](https://i.postimg.cc/9F83ckbx/Screenshot-1599590686.png)](https://postimg.cc/3dvfBnPp)
 
 
 Touch any of the Articles
@@ -39,4 +43,4 @@ Touch any of the Articles
 
 Article 1 Page
 
-[![Screenshot-1599079360.png](https://i.postimg.cc/dtCNW1t6/Screenshot-1599079360.png)](https://postimg.cc/gnYKjGhL)
+[![Screenshot-1599590690.png](https://i.postimg.cc/W1CQkJQg/Screenshot-1599590690.png)](https://postimg.cc/3kjSMWrx)
